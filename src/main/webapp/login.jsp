@@ -127,7 +127,7 @@
             <% } %>
             <div class="footer-note">
                 Nếu bạn chưa có tài khoản trên hệ thống, thì hãy
-                <a class="link" href="#">Đăng ký</a>
+                <a class="link" href="register.jsp">Đăng ký</a>
             </div>
         </div>
     </div>

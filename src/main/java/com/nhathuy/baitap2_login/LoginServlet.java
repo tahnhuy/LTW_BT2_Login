@@ -34,7 +34,7 @@ public class LoginServlet extends HttpServlet {
     private boolean authenticate(String username, String password) {
         if (username == null || password == null) return false;
 
-        String sql = "SELECT 1 FROM USN_PASS WHERE username = ? AND pass = ?";
+        String sql = "SELECT 1 FROM Users WHERE username = ? AND password = ?";
         try (Connection con = new dataBaseConnection().getConnection();
              PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, username);
