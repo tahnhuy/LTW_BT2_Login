@@ -115,7 +115,7 @@
                         <input type="checkbox" name="remember" />
                         Nhớ mật khẩu
                     </label>
-                    <a class="link" href="#">Quên mật khẩu?</a>
+                    <a class="link" href="forget_pass.jsp">Quên mật khẩu?</a>
                 </div>
                 <button type="submit" class="btn">Đăng nhập</button>
             </form>

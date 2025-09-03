@@ -5,6 +5,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -22,10 +23,10 @@ public class LoginServlet extends HttpServlet {
         boolean isValid = authenticate(username, password);
 
         if (isValid) {
-            // Đúng: chuyển tới index.jsp
+            HttpSession session = request.getSession(true);
+            session.setAttribute("authUser", username);
             request.getRequestDispatcher("/index.jsp").forward(request, response);
         } else {
-            // Sai: quay lại login.jsp với thông báo lỗi
             request.setAttribute("error", "Tên đăng nhập hoặc mật khẩu không đúng");
             request.getRequestDispatcher("/login.jsp").forward(request, response);
         }
@@ -43,7 +44,6 @@ public class LoginServlet extends HttpServlet {
                 return rs.next();
             }
         } catch (Exception e) {
-            // Có thể log lỗi thực tế
             return false;
         }
     }
