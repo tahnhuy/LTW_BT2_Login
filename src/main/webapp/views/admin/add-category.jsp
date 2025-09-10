@@ -4,6 +4,7 @@
 <html>
 <head>
     <title>Thêm danh mục mới</title>
+    <meta name="decorator" content="/WEB-INF/decorators/bootstrap.jsp" />
     <style>
         * { box-sizing: border-box; }
         body {

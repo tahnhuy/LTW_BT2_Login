@@ -1,9 +1,11 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Trang chủ</title>
+    <meta name="decorator" content="/WEB-INF/decorators/bootstrap.jsp" />
     <style>
         * { box-sizing: border-box; }
         body {
@@ -82,9 +84,51 @@
         .logout a:hover {
             text-decoration: underline;
         }
+        .app-header {   
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            background: #ffffffcc;
+            backdrop-filter: blur(6px);
+            border-bottom: 1px solid #e6e9ef;
+        }
+        .app-header .inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 16px;
+        }
+        .user-block { display: inline-flex; align-items: center; gap: 10px; }
+        .avatar {
+            width: 36px; height: 36px; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center;
+            background: #eef5ff; color: #4a5568; font-weight: 700;
+        }
+        .user-name { color: #4a5568; font-weight: 600; }
+        .edit-btn {
+            display: inline-flex; align-items: center; gap: 6px;
+            padding: 8px 12px; border-radius: 6px; background: #4a90e2; color: #fff;
+            text-decoration: none; font-weight: 600;
+        }
+        .edit-btn:hover { background: #3a7ccc; }
     </style>
 </head>
 <body>
+    <div class="app-header">
+        <div class="inner">
+            <div style="font-weight:700;color:#4a5568;">Bài Tập</div>
+            <div class="user-block">
+                <div class="avatar">
+                    ${empty sessionScope.authUser ? 'U' : fn:toUpperCase(fn:substring(sessionScope.authUser,0,1))}
+                </div>
+                <div class="user-name">${sessionScope.authUser}</div>
+                <c:url value='/profile' var='profileUrl'/>
+                <a class="edit-btn" href="${profileUrl}" title="Chỉnh sửa hồ sơ">✏️ Chỉnh sửa</a>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <h1 class="title">Chào mừng đến với hệ thống</h1>
         <p class="welcome">Bạn đã đăng nhập thành công!</p>

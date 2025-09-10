@@ -18,6 +18,12 @@
     </properties>
 
     <dependencies>
+        <!-- Sitemesh 3 for JSP templating -->
+        <dependency>
+            <groupId>org.sitemesh</groupId>
+            <artifactId>sitemesh</artifactId>
+            <version>3.0.1</version>
+        </dependency>
         <dependency>
             <groupId>jakarta.servlet</groupId>
             <artifactId>jakarta.servlet-api</artifactId>

@@ -9,6 +9,7 @@
 <html>
 <head>
     <title>Đăng nhập</title>
+    <meta name="decorator" content="/WEB-INF/decorators/bootstrap.jsp" />
     <style>
         * { box-sizing: border-box; }
         html, body { height: 100%; }
